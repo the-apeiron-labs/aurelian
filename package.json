@@ -1,7 +1,35 @@
 {
+  "name": "aurelian",
+  "version": "0.1.0",
+  "description": "A maieutic development agent built on Pi.",
+  "type": "module",
+  "bin": {
+    "aurelian": "bin/aurelian.js"
+  },
+  "files": [
+    "agent",
+    "bin",
+    "docs",
+    "dist/src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node bin/aurelian.js",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "install:global": "npm install && npm run build && npm link",
+    "prepack": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^26.6.2",
-    "ts-node": "^10.9.2",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "^0.87.0"
   }
 }
